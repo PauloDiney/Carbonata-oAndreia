@@ -1,0 +1,322 @@
+:root {
+  color-scheme: light;
+
+  --superficie: #ffffff;
+  --borda-suave: #dde5e9;
+  --borda-forte: #7e9199;
+  --texto: #0d2026;
+  --texto-suave: #5a6b73;
+  --acento: #0e7c8c;
+  --acento-fundo: #f1f9fa;
+  --acento-borda: #a9d6de;
+
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas, "Roboto Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--superficie);
+  color: var(--texto);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  height: 100dvh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding:
+    calc(env(safe-area-inset-top) + clamp(12px, 2.5vh, 20px))
+    calc(env(safe-area-inset-right) + clamp(16px, 5vw, 26px))
+    calc(env(safe-area-inset-bottom) + clamp(6px, 1.5vh, 12px))
+    calc(env(safe-area-inset-left) + clamp(16px, 5vw, 26px));
+}
+
+.conteudo {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: safe center;
+  gap: clamp(12px, 3.4vh, 32px);
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.cabecalho {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: clamp(10px, 1.8vh, 16px);
+  border-bottom: 1px solid var(--borda-suave);
+}
+
+.selo {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: clamp(36px, 10vw, 44px);
+  height: clamp(36px, 10vw, 44px);
+  border-radius: 10px;
+  background: var(--acento);
+  color: #ffffff;
+  font-family: var(--mono);
+  font-size: clamp(12px, 3.2vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cabecalho-texto {
+  min-width: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(18px, 5.2vw, 23px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--texto);
+}
+
+.cabecalho-texto p {
+  margin: 2px 0 0;
+  font-size: clamp(11px, 3vw, 13px);
+  color: var(--texto-suave);
+  line-height: 1.3;
+}
+
+/* ---------- Entradas ---------- */
+
+.entradas {
+  flex: 0 0 auto;
+  display: flex;
+  gap: clamp(10px, 3vw, 16px);
+}
+
+.campo {
+  flex: 1;
+  min-width: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: clamp(11px, 3vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.unidade {
+  color: var(--acento);
+}
+
+input[type="text"] {
+  width: 100%;
+  min-height: 58px;
+  padding: 10px 8px;
+  border: 2px solid var(--borda-forte);
+  border-radius: 12px;
+  background: var(--superficie);
+  color: var(--texto);
+  font-family: var(--mono);
+  font-size: clamp(26px, 8vw, 32px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: var(--acento);
+  box-shadow: 0 0 0 4px rgba(14, 124, 140, 0.15);
+}
+
+input::placeholder {
+  color: #9aabb2;
+  font-weight: 500;
+}
+
+/* ---------- Resultado principal ---------- */
+
+.destaque {
+  flex: 0 0 auto;
+  border: 1px solid var(--acento-borda);
+  border-left: 6px solid var(--acento);
+  border-radius: 12px;
+  background: var(--acento-fundo);
+  padding: clamp(14px, 3vh, 28px) clamp(14px, 4vw, 22px) clamp(18px, 4vh, 36px);
+}
+
+.destaque-rotulo {
+  font-size: clamp(11px, 3vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+
+.destaque-valor {
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: clamp(46px, 15vw, 68px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--texto);
+}
+
+.destaque-aviso {
+  margin: 0;
+  font-size: clamp(11px, 3vw, 12.5px);
+  line-height: 1.35;
+  color: var(--texto-suave);
+}
+
+.destaque-valor.fora-da-tabela {
+  font-family: var(--sans);
+  font-size: clamp(18px, 5.5vw, 24px);
+  line-height: 1.25;
+  padding: clamp(8px, 1.6vh, 14px) 0;
+  color: var(--acento);
+}
+
+/* ---------- Valores derivados ---------- */
+
+.derivados {
+  flex: 0 0 auto;
+  display: flex;
+  gap: clamp(10px, 3vw, 16px);
+}
+
+.derivado {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--borda-suave);
+  border-radius: 12px;
+  padding: clamp(9px, 1.6vh, 13px) clamp(10px, 3vw, 14px);
+}
+
+.derivado-rotulo {
+  display: block;
+  font-size: clamp(10px, 2.7vw, 11px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.derivado-linha {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 3px;
+}
+
+.derivado-valor {
+  font-family: var(--mono);
+  font-size: clamp(20px, 6vw, 25px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--texto);
+}
+
+.derivado-unidade {
+  font-size: clamp(11px, 3vw, 12px);
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+/* ---------- Ações ---------- */
+
+.acoes {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+#clear-btn {
+  min-height: 52px;
+  padding: 0 clamp(36px, 12vw, 56px);
+  border: 2px solid var(--borda-forte);
+  border-radius: 12px;
+  background: var(--superficie);
+  color: var(--texto);
+  font-family: var(--sans);
+  font-size: clamp(14px, 4vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+#clear-btn:active {
+  background: #eef3f5;
+  border-color: var(--acento);
+  color: var(--acento);
+}
+
+/* ---------- Rodapé ---------- */
+
+footer {
+  flex: 0 0 auto;
+  padding-top: clamp(8px, 1.5vh, 12px);
+  border-top: 1px solid var(--borda-suave);
+  text-align: center;
+  font-size: clamp(10px, 2.7vw, 11px);
+  color: var(--texto-suave);
+}
+
+/* ---------- Tela baixa (teclado aberto / aparelho pequeno) ---------- */
+
+@media (max-height: 560px) {
+  .cabecalho-texto p {
+    display: none;
+  }
+
+  .selo {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+
+  .conteudo {
+    gap: 10px;
+  }
+
+  input[type="text"] {
+    min-height: 46px;
+    font-size: clamp(22px, 7vw, 26px);
+  }
+
+  .destaque {
+    padding: 10px clamp(12px, 3.5vw, 18px) 14px;
+  }
+
+  .destaque-valor {
+    font-size: clamp(34px, 11vw, 44px);
+  }
+
+  .derivado-valor {
+    font-size: clamp(18px, 5vw, 21px);
+  }
+
+  #clear-btn {
+    min-height: 44px;
+  }
+}
