@@ -1,76 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<meta name="color-scheme" content="light">
-<meta name="theme-color" content="#ffffff">
-<meta name="description" content="Calculadora offline de volume de CO2 dissolvido por volume de agua (V/V)">
-<title>Carbonatação</title>
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" href="./icon-192.png">
-<link rel="apple-touch-icon" href="./icon-192.png">
-<link rel="stylesheet" href="./styles.css">
-<script src="./tabela.js" defer></script>
-<script src="./app.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Calculadora offline de volume de CO2 dissolvido por volume de agua (V/V)">
+  <title>Carbonatação</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () {
+      (window.vaq = window.vaq || []).push(arguments);
+    };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <script src="./tabela.js" defer></script>
+  <script src="./app.js" defer></script>
 </head>
+
 <body>
 
-<main class="app">
+  <main class="app">
 
-  <header class="cabecalho">
-    <span class="selo">CO₂</span>
-    <div class="cabecalho-texto">
-      <h1>Carbonatação</h1>
-      <p>Volume de CO₂ dissolvido por volume de água</p>
+    <header class="cabecalho">
+      <span class="selo">CO₂</span>
+      <div class="cabecalho-texto">
+        <h1>Carbonatação</h1>
+        <p>Volume de CO₂ dissolvido por volume de água</p>
+      </div>
+    </header>
+
+    <div class="conteudo">
+
+      <section class="entradas">
+        <div class="campo">
+          <label for="psi">Pressão <span class="unidade">PSI</span></label>
+          <input id="psi" type="text" inputmode="decimal" placeholder="0,0" autocomplete="off" enterkeyhint="done">
+        </div>
+        <div class="campo">
+          <label for="celsius">Temperatura <span class="unidade">°C</span></label>
+          <input id="celsius" type="text" inputmode="decimal" placeholder="0,0" autocomplete="off" enterkeyhint="done">
+        </div>
+      </section>
+
+      <section class="destaque">
+        <div class="destaque-rotulo">V/V — Volumes de CO₂</div>
+        <div class="destaque-valor" id="out-vv">—</div>
+        <p class="destaque-aviso" id="vv-aviso" hidden>A tabela cobre de 0 a 100 PSI e de 0 a 37,8 °C</p>
+      </section>
+
+      <section class="derivados">
+        <div class="derivado">
+          <span class="derivado-rotulo">Pressão</span>
+          <span class="derivado-linha">
+            <span class="derivado-valor" id="out-kgf">—</span>
+            <span class="derivado-unidade">kgf/cm²</span>
+          </span>
+        </div>
+        <div class="derivado">
+          <span class="derivado-rotulo">Temperatura</span>
+          <span class="derivado-linha">
+            <span class="derivado-valor" id="out-f">—</span>
+            <span class="derivado-unidade">°F</span>
+          </span>
+        </div>
+      </section>
+
+      <div class="acoes">
+        <button id="clear-btn" type="button">Limpar</button>
+      </div>
+
     </div>
-  </header>
 
-  <div class="conteudo">
+    <footer>Confira os valores com a planilha antes de usar em produção</footer>
 
-    <section class="entradas">
-      <div class="campo">
-        <label for="psi">Pressão <span class="unidade">PSI</span></label>
-        <input id="psi" type="text" inputmode="decimal" placeholder="0,0" autocomplete="off" enterkeyhint="done">
-      </div>
-      <div class="campo">
-        <label for="celsius">Temperatura <span class="unidade">°C</span></label>
-        <input id="celsius" type="text" inputmode="decimal" placeholder="0,0" autocomplete="off" enterkeyhint="done">
-      </div>
-    </section>
-
-    <section class="destaque">
-      <div class="destaque-rotulo">V/V — Volumes de CO₂</div>
-      <div class="destaque-valor" id="out-vv">—</div>
-      <p class="destaque-aviso" id="vv-aviso" hidden>A tabela cobre de 0 a 100 PSI e de 0 a 37,8 °C</p>
-    </section>
-
-    <section class="derivados">
-      <div class="derivado">
-        <span class="derivado-rotulo">Pressão</span>
-        <span class="derivado-linha">
-          <span class="derivado-valor" id="out-kgf">—</span>
-          <span class="derivado-unidade">kgf/cm²</span>
-        </span>
-      </div>
-      <div class="derivado">
-        <span class="derivado-rotulo">Temperatura</span>
-        <span class="derivado-linha">
-          <span class="derivado-valor" id="out-f">—</span>
-          <span class="derivado-unidade">°F</span>
-        </span>
-      </div>
-    </section>
-
-    <div class="acoes">
-      <button id="clear-btn" type="button">Limpar</button>
-    </div>
-
-  </div>
-
-  <footer>Confira os valores com a planilha antes de usar em produção</footer>
-
-</main>
+  </main>
 
 </body>
+
 </html>

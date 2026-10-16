@@ -1,4 +1,4 @@
-const CACHE_NAME = 'carbonatacao-v3';
+const CACHE_NAME = 'carbonatacao-v4';
 
 const ASSETS = [
   './',
