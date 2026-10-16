@@ -1,0 +1,23 @@
+{
+  "name": "primary",
+  "version": "1.0.0",
+  "description": "PWA offline para calcular o volume de CO₂ dissolvido por volume de água (V/V), substituindo a planilha usada na fábrica. Digite Pressão (PSI) e Temperatura (°C) e o resultado aparece na hora, sem botão de calcular.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PauloDiney/Carbonata-oAndreia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PauloDiney/Carbonata-oAndreia/issues"
+  },
+  "homepage": "https://github.com/PauloDiney/Carbonata-oAndreia#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
